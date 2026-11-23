@@ -1,0 +1,62 @@
+LogisticRegression validation accuracy: 0.779
+DecisionTree validation accuracy: 0.704
+RandomForest validation accuracy: 0.758
+RandomForest OOB score: 0.765
+XGBoost validation accuracy (early stopping): 0.746
+XGBoost top 5 features:
+ num__income                           0.069881
+num__credit_score                     0.064008
+num__debt_to_income                   0.061150
+cat__employment_type_Self-employed    0.061128
+cat__grade_A                          0.058352
+
+LogisticRegression predict_proba for 5 rows:
+[[0.894 0.106]
+ [0.937 0.063]
+ [0.915 0.085]
+ [0.603 0.397]
+ [0.828 0.172]]
+predict: [0, 0, 0, 0, 0]
+
+Random Forest top 5 features:
+ num__income              0.141610
+num__credit_score        0.138835
+num__debt_to_income      0.130227
+num__loan_amount         0.123954
+num__employment_years    0.111655
+
+Regression coefficient comparison (features: age, income, employment_years, credit_score, debt_to_income)
+LinearRegression coefficients: [-14.495, -0.007, 32.501, 3.201, -1019.103]
+Ridge coefficients: [-14.491, -0.007, 32.475, 3.192, -977.754]
+Lasso coefficients: [-14.403, -0.007, 31.938, 3.111, -612.762]
+Lasso zero coefficients: 0
+KMeans k=2: inertia=2802.58, silhouette=0.216
+KMeans k=3: inertia=2272.43, silhouette=0.214
+KMeans k=4: inertia=1853.27, silhouette=0.231
+KMeans k=5: inertia=1638.31, silhouette=0.229
+KMeans k=6: inertia=1437.12, silhouette=0.233
+KMeans k=7: inertia=1322.18, silhouette=0.228
+KMeans k=8: inertia=1215.51, silhouette=0.224
+
+Best silhouette among tested k: 6
+Segments are groups with similar income, requested loan amount and credit score; inspect cluster centres to profile them.
+
+Validation results table
+             Model  Validation score
+LogisticRegression          0.779167
+      DecisionTree          0.704167
+      RandomForest          0.758333
+           XGBoost          0.745833
+Plots saved: kmeans_elbow.png, kmeans_silhouette.png
+
+STDERR / WARNINGS:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
